@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  oracledb:
+    build:
+      context: .
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      - ORACLE_PASSWORD=foobar
+    volumes:
+      - ./db_input:/usr/dbuserdata
+    container_name: "oracledb"
+
+volumes:
+  db_input:
